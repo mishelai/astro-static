@@ -1,0 +1,225 @@
+---
+// Horizontally scrolling testimonials
+const testimonials = [
+  {
+    name: 'Sarah Johnson',
+    role: 'Homeowner',
+    image: 'SJ',
+    rating: 5,
+    text: 'ProPlumber saved us during a midnight emergency! They arrived within 30 minutes and fixed our burst pipe quickly. Absolutely professional service.',
+  },
+  {
+    name: 'Michael Chen',
+    role: 'Restaurant Owner',
+    image: 'MC',
+    rating: 5,
+    text: 'We rely on ProPlumber for all our commercial plumbing needs. Their team is always punctual, professional, and gets the job done right the first time.',
+  },
+  {
+    name: 'Emily Rodriguez',
+    role: 'Property Manager',
+    image: 'ER',
+    rating: 5,
+    text: 'Managing multiple properties means lots of plumbing issues. ProPlumber has been our go-to for 3 years. Consistent quality and fair pricing every time.',
+  },
+  {
+    name: 'David Thompson',
+    role: 'Homeowner',
+    image: 'DT',
+    rating: 5,
+    text: 'Had them install a new tankless water heater. The technician explained everything clearly and cleaned up perfectly. Highly recommend!',
+  },
+  {
+    name: 'Jennifer Williams',
+    role: 'Business Owner',
+    image: 'JW',
+    rating: 5,
+    text: 'After trying several plumbers, we finally found ProPlumber. They diagnosed our issue in minutes after others couldn\'t figure it out for weeks.',
+  },
+  {
+    name: 'Robert Martinez',
+    role: 'Homeowner',
+    image: 'RM',
+    rating: 5,
+    text: 'Complete bathroom remodel done beautifully. The team was respectful of our home and the craftsmanship exceeded our expectations.',
+  },
+];
+---
+
+<section class="testimonials-section section" id="testimonials">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">
+        Don't just take our word for it. Here's what our satisfied customers have to say about our services.
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonials-slider">
+    <div class="testimonials-track">
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            {[...Array(testimonial.rating)].map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            ))}
+          </div>
+          <p class="testimonial-text">"{testimonial.text}"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">{testimonial.image}</div>
+            <div class="author-info">
+              <strong>{testimonial.name}</strong>
+              <span>{testimonial.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+      {/* Duplicate for seamless loop */}
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            {[...Array(testimonial.rating)].map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            ))}
+          </div>
+          <p class="testimonial-text">"{testimonial.text}"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">{testimonial.image}</div>
+            <div class="author-info">
+              <strong>{testimonial.name}</strong>
+              <span>{testimonial.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  .testimonials-slider {
+    margin-top: 50px;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+
+  .testimonials-track {
+    display: flex;
+    gap: 30px;
+    animation: scroll 40s linear infinite;
+    width: max-content;
+  }
+
+  .testimonials-track:hover {
+    animation-play-state: paused;
+  }
+
+  .testimonial-card {
+    flex-shrink: 0;
+    width: 380px;
+    background: var(--light);
+    padding: 35px;
+    border-radius: 20px;
+    transition: var(--transition);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+  }
+
+  .testimonial-rating {
+    display: flex;
+    gap: 4px;
+    color: #ffc107;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .author-info strong {
+    display: block;
+    color: var(--dark);
+    font-size: 1rem;
+  }
+
+  .author-info span {
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .testimonial-card {
+      width: 320px;
+      padding: 25px;
+    }
+  }
+</style>

@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with ProPlumber for a free quote or emergency plumbing service. Available 24/7."
+  currentPage="/contact"
+>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="page-label">Contact Us</span>
+        <h1>Let's Talk Plumbing</h1>
+        <p>
+          Have a question or need a quote? We're here to help.
+          Reach out and we'll respond as soon as possible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ContactForm fullPage={true} />
+
+  <section class="map-section">
+    <div class="container">
+      <div class="map-wrapper">
+        <div class="map-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" class="map-svg">
+            <rect width="800" height="400" fill="var(--light)" rx="20"/>
+            <g transform="translate(300, 100)">
+              <circle cx="100" cy="100" r="80" fill="var(--primary)" opacity="0.1"/>
+              <circle cx="100" cy="100" r="50" fill="var(--primary)" opacity="0.15"/>
+              <path d="M100 50 C100 80, 130 100, 100 140 C70 100, 100 80, 100 50" fill="var(--primary)" opacity="0.8"/>
+              <circle cx="100" cy="85" r="15" fill="var(--white)"/>
+            </g>
+            <text x="400" y="280" text-anchor="middle" fill="var(--dark)" font-size="18" font-weight="600">123 Main Street, Anytown, ST 12345</text>
+            <text x="400" y="310" text-anchor="middle" fill="var(--gray)" font-size="14">View on Google Maps</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>What areas do you serve?</h4>
+          <p>We proudly serve the greater metropolitan area including all surrounding suburbs within a 30-mile radius.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you offer emergency services?</h4>
+          <p>Yes! We're available 24/7 for plumbing emergencies. Call us anytime at (123) 456-7890.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Are your technicians licensed?</h4>
+          <p>Absolutely. All our technicians are fully licensed, insured, and undergo regular training.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you provide free estimates?</h4>
+          <p>Yes, we offer free estimates for most services. Contact us to schedule an appointment.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What payment methods do you accept?</h4>
+          <p>We accept cash, checks, and all major credit cards. Financing options are also available.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you guarantee your work?</h4>
+          <p>Yes, all our work is backed by a satisfaction guarantee and warranty on parts and labor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  .page-label {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .page-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  /* Map Section */
+  .map-section {
+    padding: 60px 0;
+    background: var(--white);
+  }
+
+  .map-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .map-placeholder {
+    background: var(--light);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .map-placeholder:hover {
+    opacity: 0.9;
+  }
+
+  .map-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    background: var(--light);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+  }
+
+  .faq-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--dark);
+  }
+
+  .faq-item p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero h1 {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
