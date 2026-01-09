@@ -8,9 +8,9 @@ const base = import.meta.env.BASE_URL;
 
 const navLinks = [
   { href: base, label: 'Home' },
-  { href: `${base}services`, label: 'Services' },
-  { href: `${base}about`, label: 'About' },
-  { href: `${base}contact`, label: 'Contact' },
+  { href: `${base}/services`, label: 'Services' },
+  { href: `${base}/about`, label: 'About' },
+  { href: `${base}/contact`, label: 'Contact' },
 ];
 ---
 
@@ -51,7 +51,7 @@ const navLinks = [
           </svg>
           <span>(555) 555-0123</span>
         </a>
-        <a href={`${base}contact`} class="btn btn-primary nav-cta">Contact</a>
+        <a href={`${base}/contact`} class="btn btn-primary nav-cta">Contact</a>
       </div>
 
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
