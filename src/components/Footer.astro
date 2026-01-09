@@ -1,5 +1,6 @@
 ---
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="footer">
@@ -18,7 +19,7 @@ const currentYear = new Date().getFullYear();
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="footer-logo">
+          <a href={base} class="footer-logo">
             <div class="logo-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v6"></path>
