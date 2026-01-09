@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import LogoAnimation from '../components/LogoAnimation.astro';
+import TopBar from '../components/TopBar.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
 import CTASection from '../components/CTASection.astro';
@@ -11,14 +11,14 @@ import ContactForm from '../components/ContactForm.astro';
 
 <BaseLayout
   title="Home"
-  description="ProPlumber - Professional plumbing services for residential and commercial properties. Available 24/7 for emergency repairs."
+  description="Professional plumbing services for residential and commercial properties. Available 24/7 for emergency repairs."
   currentPage="/"
 >
   <Hero />
-  <LogoAnimation />
+  <TopBar />
   <AboutSection />
   <ServicesSection />
   <CTASection />
-  <Testimonials />
   <ContactForm />
+  <Testimonials />
 </BaseLayout>

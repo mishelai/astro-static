@@ -8,205 +8,114 @@ const { showAll = false } = Astro.props;
 const services = [
   {
     id: 'emergency',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
-    title: 'Emergency Repairs',
-    description: '24/7 emergency plumbing services for burst pipes, severe leaks, and urgent repairs that can\'t wait.',
-    features: ['Available 24/7', 'Fast Response Time', 'No Extra Charges'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+    title: 'Emergency repairs',
+    description: '24/7 emergency plumbing services for burst pipes, severe leaks, and urgent repairs.',
   },
   {
     id: 'drain',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>`,
-    title: 'Drain Cleaning',
-    description: 'Professional drain cleaning using advanced equipment to clear clogs and prevent future blockages.',
-    features: ['Camera Inspection', 'Hydro Jetting', 'Preventive Care'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>`,
+    title: 'Drain cleaning',
+    description: 'Professional drain cleaning using advanced equipment to clear clogs.',
   },
   {
     id: 'water-heater',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"></path><path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path></svg>`,
-    title: 'Water Heater Services',
-    description: 'Installation, repair, and maintenance for all types of water heaters including tankless systems.',
-    features: ['Tank & Tankless', 'Energy Efficient', 'Same-Day Service'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"></path><path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path></svg>`,
+    title: 'Water heaters',
+    description: 'Installation, repair, and maintenance for all types of water heaters.',
   },
   {
     id: 'pipes',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v14a2 2 0 0 0 2 2h14"></path><path d="M18 22V8a2 2 0 0 0-2-2H2"></path></svg>`,
-    title: 'Pipe Installation',
-    description: 'Complete pipe installation and replacement services for new construction and remodeling projects.',
-    features: ['Copper & PEX', 'Code Compliant', 'Warranty Included'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v14a2 2 0 0 0 2 2h14"></path><path d="M18 22V8a2 2 0 0 0-2-2H2"></path></svg>`,
+    title: 'Pipe installation',
+    description: 'Complete pipe installation and replacement for new construction.',
   },
   {
     id: 'bathroom',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h10"></path><path d="M9 12h10"></path><path d="M9 18h10"></path><circle cx="4" cy="6" r="1"></circle><circle cx="4" cy="12" r="1"></circle><circle cx="4" cy="18" r="1"></circle></svg>`,
-    title: 'Bathroom Remodeling',
-    description: 'Transform your bathroom with our expert plumbing services for fixtures, showers, and tubs.',
-    features: ['Custom Designs', 'Quality Fixtures', 'Full Installation'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h10"></path><path d="M9 12h10"></path><path d="M9 18h10"></path></svg>`,
+    title: 'Bathroom remodeling',
+    description: 'Transform your bathroom with expert plumbing for fixtures and showers.',
   },
   {
     id: 'leak',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>`,
-    title: 'Leak Detection',
-    description: 'Advanced leak detection services to find hidden leaks and prevent water damage to your property.',
-    features: ['Non-Invasive', 'Accurate Detection', 'Quick Repairs'],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>`,
+    title: 'Leak detection',
+    description: 'Advanced leak detection to find hidden leaks and prevent water damage.',
   },
 ];
 
 const displayServices = showAll ? services : services.slice(0, 6);
 ---
 
-<section class="services-section section" id="services">
+<section class="services-section" id="services">
   <div class="container">
-    <div class="section-header text-center">
-      <span class="section-label">Our Services</span>
-      <h2 class="section-title">Professional Plumbing Solutions</h2>
-      <p class="section-subtitle">
-        From routine maintenance to complex installations, we provide comprehensive
-        plumbing services tailored to your needs.
-      </p>
-    </div>
+    <h2 class="services-title">Our services</h2>
 
     <div class="services-grid">
       {displayServices.map((service) => (
         <div class="service-card" id={service.id}>
           <div class="service-icon" set:html={service.icon} />
-          <h3 class="service-title">{service.title}</h3>
-          <p class="service-description">{service.description}</p>
-          <ul class="service-features">
-            {service.features.map((feature) => (
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <a href="/contact" class="service-link">
-            Get Quote
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
+          <h3 class="service-name">{service.title}</h3>
+          <p class="service-desc">{service.description}</p>
         </div>
       ))}
     </div>
-
-    {!showAll && (
-      <div class="services-cta text-center">
-        <a href="/services" class="btn btn-outline">View All Services</a>
-      </div>
-    )}
   </div>
 </section>
 
 <style>
   .services-section {
-    background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+    background: var(--primary);
+    padding: 80px 0;
   }
 
-  .section-header {
-    margin-bottom: 50px;
-  }
-
-  .section-label {
-    display: inline-block;
-    color: var(--primary);
+  .services-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--white);
+    margin-bottom: 60px;
     font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
   }
 
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 24px;
   }
 
   .service-card {
-    background: var(--white);
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 32px;
+    border-radius: var(--radius-lg);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
   }
 
   .service-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(0, 180, 216, 0.1));
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    color: var(--primary);
-    transition: var(--transition);
-  }
-
-  .service-card:hover .service-icon {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: var(--white);
-  }
-
-  .service-title {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: var(--dark);
-  }
-
-  .service-description {
-    color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.7;
+    color: var(--accent);
     margin-bottom: 20px;
   }
 
-  .service-features {
-    list-style: none;
-    margin-bottom: 25px;
-  }
-
-  .service-features li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    color: var(--dark);
-    margin-bottom: 10px;
-  }
-
-  .service-features svg {
-    color: var(--primary);
-    flex-shrink: 0;
-  }
-
-  .service-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary);
+  .service-name {
+    font-size: 1.25rem;
     font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
     font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
   }
 
-  .service-link:hover {
-    gap: 12px;
-    color: var(--primary-dark);
-  }
-
-  .services-cta {
-    margin-top: 50px;
-  }
-
-  @media (max-width: 1000px) {
+  @media (max-width: 900px) {
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -218,7 +127,7 @@ const displayServices = showAll ? services : services.slice(0, 6);
     }
 
     .service-card {
-      padding: 25px;
+      padding: 24px;
     }
   }
 </style>

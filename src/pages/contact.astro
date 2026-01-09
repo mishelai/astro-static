@@ -5,75 +5,66 @@ import ContactForm from '../components/ContactForm.astro';
 
 <BaseLayout
   title="Contact Us"
-  description="Get in touch with ProPlumber for a free quote or emergency plumbing service. Available 24/7."
+  description="Get in touch with us for a free quote or emergency plumbing service. Available 24/7."
   currentPage="/contact"
 >
   <section class="page-hero">
     <div class="container">
-      <div class="page-hero-content">
-        <span class="page-label">Contact Us</span>
-        <h1>Let's Talk Plumbing</h1>
-        <p>
-          Have a question or need a quote? We're here to help.
-          Reach out and we'll respond as soon as possible.
-        </p>
-      </div>
+      <h1>Contact Us</h1>
+      <p>We're here to help with all your plumbing needs</p>
     </div>
   </section>
 
   <ContactForm fullPage={true} />
 
-  <section class="map-section">
+  <section class="contact-info-section section">
     <div class="container">
-      <div class="map-wrapper">
-        <div class="map-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" class="map-svg">
-            <rect width="800" height="400" fill="var(--light)" rx="20"/>
-            <g transform="translate(300, 100)">
-              <circle cx="100" cy="100" r="80" fill="var(--primary)" opacity="0.1"/>
-              <circle cx="100" cy="100" r="50" fill="var(--primary)" opacity="0.15"/>
-              <path d="M100 50 C100 80, 130 100, 100 140 C70 100, 100 80, 100 50" fill="var(--primary)" opacity="0.8"/>
-              <circle cx="100" cy="85" r="15" fill="var(--white)"/>
-            </g>
-            <text x="400" y="280" text-anchor="middle" fill="var(--dark)" font-size="18" font-weight="600">123 Main Street, Anytown, ST 12345</text>
-            <text x="400" y="310" text-anchor="middle" fill="var(--gray)" font-size="14">View on Google Maps</text>
-          </svg>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <h3>Phone</h3>
+          <p>(555) 555-0123</p>
+          <span>Available 24/7 for emergencies</span>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="faq-section section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-label">FAQ</span>
-        <h2 class="section-title">Common Questions</h2>
-      </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <h3>Email</h3>
+          <p>info@plumbing.com</p>
+          <span>We respond within 24 hours</span>
+        </div>
 
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h4>What areas do you serve?</h4>
-          <p>We proudly serve the greater metropolitan area including all surrounding suburbs within a 30-mile radius.</p>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <h3>Locations</h3>
+          <p>Manhattan & Brooklyn</p>
+          <span>Serving all of New York</span>
         </div>
-        <div class="faq-item">
-          <h4>Do you offer emergency services?</h4>
-          <p>Yes! We're available 24/7 for plumbing emergencies. Call us anytime at (123) 456-7890.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Are your technicians licensed?</h4>
-          <p>Absolutely. All our technicians are fully licensed, insured, and undergo regular training.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Do you provide free estimates?</h4>
-          <p>Yes, we offer free estimates for most services. Contact us to schedule an appointment.</p>
-        </div>
-        <div class="faq-item">
-          <h4>What payment methods do you accept?</h4>
-          <p>We accept cash, checks, and all major credit cards. Financing options are also available.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Do you guarantee your work?</h4>
-          <p>Yes, all our work is backed by a satisfaction guarantee and warranty on parts and labor.</p>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3>Hours</h3>
+          <p>Mon - Sat: 7AM - 8PM</p>
+          <span>Emergency: 24/7</span>
         </div>
       </div>
     </div>
@@ -82,113 +73,85 @@ import ContactForm from '../components/ContactForm.astro';
 
 <style>
   .page-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     color: var(--white);
-    padding: 100px 0 80px;
+    padding: 80px 0 60px;
     text-align: center;
   }
 
-  .page-label {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
   .page-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--white);
   }
 
   .page-hero p {
     font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
+    opacity: 0.85;
+    color: var(--white);
   }
 
-  .section-label {
-    display: inline-block;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+  .section {
+    padding: 80px 0;
   }
 
-  /* Map Section */
-  .map-section {
-    padding: 60px 0;
-    background: var(--white);
+  .contact-info-section {
+    background: var(--gray-50);
   }
 
-  .map-wrapper {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-
-  .map-placeholder {
-    background: var(--light);
-    cursor: pointer;
-    transition: var(--transition);
-  }
-
-  .map-placeholder:hover {
-    opacity: 0.9;
-  }
-
-  .map-svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* FAQ Section */
-  .faq-section {
-    background: var(--light);
-  }
-
-  .faq-grid {
+  .info-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 900px;
-    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 
-  .faq-item {
+  .info-card {
     background: var(--white);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
   }
 
-  .faq-item h4 {
+  .info-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(30, 64, 175, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: var(--primary);
+  }
+
+  .info-card h3 {
     font-size: 1.1rem;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     color: var(--dark);
   }
 
-  .faq-item p {
-    color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
+  .info-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .info-card span {
+    font-size: 0.85rem;
+    color: var(--gray-500);
   }
 
   @media (max-width: 900px) {
-    .page-hero h1 {
-      font-size: 2.2rem;
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 768px) {
-    .faq-grid {
+  @media (max-width: 600px) {
+    .info-grid {
       grid-template-columns: 1fr;
     }
   }

@@ -3,128 +3,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 
 const team = [
-  {
-    name: 'Mike Johnson',
-    role: 'Founder & Master Plumber',
-    initials: 'MJ',
-    bio: '25+ years of experience in residential and commercial plumbing.',
-  },
-  {
-    name: 'Sarah Williams',
-    role: 'Operations Manager',
-    initials: 'SW',
-    bio: 'Ensures smooth scheduling and exceptional customer service.',
-  },
-  {
-    name: 'David Chen',
-    role: 'Lead Technician',
-    initials: 'DC',
-    bio: 'Specialist in water heater systems and bathroom remodeling.',
-  },
-  {
-    name: 'Emily Rodriguez',
-    role: 'Service Technician',
-    initials: 'ER',
-    bio: 'Expert in drain cleaning and leak detection technologies.',
-  },
+  { name: 'Mike Johnson', role: 'Founder & Master Plumber', initials: 'MJ' },
+  { name: 'Sarah Williams', role: 'Operations Manager', initials: 'SW' },
+  { name: 'David Chen', role: 'Lead Technician', initials: 'DC' },
+  { name: 'Emily Rodriguez', role: 'Service Technician', initials: 'ER' },
 ];
 
 const values = [
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
-    title: 'Integrity',
-    description: 'Honest pricing, transparent communication, and ethical business practices in everything we do.',
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`,
-    title: 'Excellence',
-    description: 'We strive for perfection in every job, using quality materials and proven techniques.',
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
-    title: 'Customer Focus',
-    description: 'Your satisfaction is our priority. We treat every home like our own.',
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
-    title: 'Reliability',
-    description: 'When we say we\'ll be there, we mean it. Punctual, dependable service you can count on.',
-  },
+  { title: 'Integrity', desc: 'Honest pricing and transparent communication in everything we do.' },
+  { title: 'Excellence', desc: 'Quality workmanship using the best materials and techniques.' },
+  { title: 'Customer Focus', desc: 'Your satisfaction is our priority. We treat every home like our own.' },
+  { title: 'Reliability', desc: 'Punctual, dependable service you can count on.' },
 ];
 ---
 
 <BaseLayout
   title="About Us"
-  description="Learn about ProPlumber's history, our experienced team, and our commitment to quality plumbing services."
+  description="Learn about our experienced team and commitment to quality plumbing services."
   currentPage="/about"
 >
   <section class="page-hero">
     <div class="container">
-      <div class="page-hero-content">
-        <span class="page-label">About Us</span>
-        <h1>Your Trusted Plumbing Partners</h1>
-        <p>
-          For over 15 years, we've been providing exceptional plumbing services
-          to homeowners and businesses in our community.
-        </p>
-      </div>
+      <h1>About Us</h1>
+      <p>Your trusted plumbing partners since 2009</p>
     </div>
   </section>
 
   <section class="story-section section">
     <div class="container">
       <div class="story-grid">
-        <div class="story-image">
-          <div class="story-image-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" class="placeholder-svg">
-              <rect width="400" height="500" fill="var(--primary)" opacity="0.1" rx="20"/>
-              <g transform="translate(100, 100)">
-                <rect x="20" y="0" width="160" height="250" rx="10" fill="var(--primary)" opacity="0.15"/>
-                <rect x="40" y="30" width="120" height="80" rx="8" fill="var(--primary)" opacity="0.2"/>
-                <circle cx="100" cy="180" r="50" fill="var(--primary)" opacity="0.2"/>
-                <rect x="70" y="250" width="60" height="40" rx="5" fill="var(--primary)" opacity="0.2"/>
-              </g>
-              <text x="200" y="420" text-anchor="middle" fill="var(--primary)" font-size="18" font-weight="600" opacity="0.4">Since 2009</text>
-            </svg>
-            <div class="experience-badge">
-              <span class="exp-number">15+</span>
-              <span class="exp-text">Years Serving<br/>Our Community</span>
-            </div>
-          </div>
-        </div>
-
         <div class="story-content">
-          <span class="section-label">Our Story</span>
-          <h2 class="section-title">Built on Trust & Quality</h2>
+          <h2 class="story-title">
+            <span class="title-bold">Built on trust</span><br />
+            <span class="title-light">& quality</span>
+          </h2>
           <p>
-            ProPlumber was founded in 2009 by Mike Johnson, a master plumber with a vision
-            to provide honest, reliable plumbing services that homeowners could trust.
+            Plumbing was founded in 2009 with a vision to provide honest, reliable
+            plumbing services that homeowners could trust. What started as a one-man
+            operation has grown into a team of skilled professionals.
           </p>
           <p>
-            What started as a one-man operation has grown into a team of skilled professionals,
-            but our core values remain the same: integrity, quality workmanship, and putting
-            customers first.
+            Over the years, we've completed more than 5,000 jobs, from simple faucet
+            repairs to complete plumbing system installations. Our growth has been
+            driven by word-of-mouth recommendations from satisfied customers.
           </p>
-          <p>
-            Over the years, we've completed more than 5,000 jobs, from simple faucet repairs
-            to complete plumbing system installations. Our growth has been driven by word-of-mouth
-            recommendations from satisfied customers who trust us with their homes and businesses.
-          </p>
-
           <div class="story-stats">
+            <div class="stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
             <div class="stat">
               <span class="stat-number">5000+</span>
               <span class="stat-label">Jobs Completed</span>
             </div>
             <div class="stat">
               <span class="stat-number">98%</span>
-              <span class="stat-label">Satisfaction Rate</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">24/7</span>
-              <span class="stat-label">Emergency Service</span>
+              <span class="stat-label">Satisfaction</span>
             </div>
           </div>
+        </div>
+        <div class="story-image">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="placeholder-svg">
+            <rect width="400" height="300" fill="var(--primary)" opacity="0.1" rx="16"/>
+            <g transform="translate(100, 50)">
+              <rect x="20" y="0" width="160" height="180" rx="10" fill="var(--primary)" opacity="0.15"/>
+              <circle cx="100" cy="100" r="50" fill="var(--primary)" opacity="0.2"/>
+            </g>
+          </svg>
         </div>
       </div>
     </div>
@@ -132,96 +77,35 @@ const values = [
 
   <section class="values-section section">
     <div class="container">
-      <div class="section-header text-center">
-        <span class="section-label">Our Values</span>
-        <h2 class="section-title">What Drives Us</h2>
-        <p class="section-subtitle">
-          These core values guide everything we do and define who we are as a company.
-        </p>
-      </div>
-
+      <h2 class="values-title text-center">
+        <span class="title-bold">Our</span>
+        <span class="title-light">values</span>
+      </h2>
       <div class="values-grid">
         {values.map((value) => (
           <div class="value-card">
-            <div class="value-icon" set:html={value.icon} />
             <h3>{value.title}</h3>
-            <p>{value.description}</p>
+            <p>{value.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="team-section section" id="team">
+  <section class="team-section section">
     <div class="container">
-      <div class="section-header text-center">
-        <span class="section-label">Our Team</span>
-        <h2 class="section-title">Meet the Experts</h2>
-        <p class="section-subtitle">
-          Our licensed and certified professionals are dedicated to providing
-          exceptional service on every job.
-        </p>
-      </div>
-
+      <h2 class="team-title text-center">
+        <span class="title-bold">Meet the</span>
+        <span class="title-light">team</span>
+      </h2>
       <div class="team-grid">
         {team.map((member) => (
           <div class="team-card">
             <div class="team-avatar">{member.initials}</div>
             <h3>{member.name}</h3>
-            <span class="team-role">{member.role}</span>
-            <p>{member.bio}</p>
+            <span>{member.role}</span>
           </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="certifications-section section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-label">Certifications</span>
-        <h2 class="section-title">Licensed & Certified</h2>
-      </div>
-
-      <div class="cert-grid">
-        <div class="cert-item">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h4>State Licensed</h4>
-          <p>Fully licensed plumbing contractor</p>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <h4>Fully Insured</h4>
-          <p>Comprehensive liability coverage</p>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="7"></circle>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-            </svg>
-          </div>
-          <h4>Certified Technicians</h4>
-          <p>Factory trained on all major brands</p>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-            </svg>
-          </div>
-          <h4>BBB Accredited</h4>
-          <p>A+ rating with Better Business Bureau</p>
-        </div>
       </div>
     </div>
   </section>
@@ -231,42 +115,37 @@ const values = [
 
 <style>
   .page-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     color: var(--white);
-    padding: 100px 0 80px;
+    padding: 80px 0 60px;
     text-align: center;
   }
 
-  .page-label {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
   .page-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--white);
   }
 
   .page-hero p {
     font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
+    opacity: 0.85;
+    color: var(--white);
   }
 
-  .section-label {
-    display: inline-block;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+  .section {
+    padding: 100px 0;
+  }
+
+  .title-bold {
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .title-light {
+    font-weight: 400;
+    color: var(--gray-400);
   }
 
   /* Story Section */
@@ -276,63 +155,29 @@ const values = [
 
   .story-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
   }
 
-  .story-image-wrapper {
-    position: relative;
-  }
-
-  .placeholder-svg {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .experience-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: var(--primary);
-    color: var(--white);
-    padding: 25px 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .exp-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .exp-text {
-    font-size: 0.85rem;
-    opacity: 0.9;
-    line-height: 1.3;
-  }
-
-  .story-content .section-title {
-    text-align: left;
-    margin-bottom: 25px;
+  .story-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: 24px;
   }
 
   .story-content p {
-    color: var(--gray);
-    line-height: 1.8;
-    margin-bottom: 20px;
+    color: var(--gray-500);
+    line-height: 1.7;
+    margin-bottom: 16px;
   }
 
   .story-stats {
     display: flex;
     gap: 40px;
-    margin-top: 35px;
-    padding-top: 35px;
-    border-top: 1px solid #e9ecef;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--gray-200);
   }
 
   .stat {
@@ -348,55 +193,46 @@ const values = [
 
   .stat-label {
     font-size: 0.85rem;
-    color: var(--gray);
+    color: var(--gray-500);
+  }
+
+  .placeholder-svg {
+    width: 100%;
+    border-radius: var(--radius-xl);
   }
 
   /* Values Section */
   .values-section {
-    background: var(--light);
+    background: var(--gray-50);
+  }
+
+  .values-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 48px;
   }
 
   .values-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 24px;
   }
 
   .value-card {
     background: var(--white);
-    padding: 35px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-  }
-
-  .value-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .value-icon {
-    width: 70px;
-    height: 70px;
-    background: rgba(0, 102, 204, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    color: var(--primary);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
   }
 
   .value-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
     color: var(--dark);
   }
 
   .value-card p {
-    color: var(--gray);
     font-size: 0.95rem;
+    color: var(--gray-500);
     line-height: 1.6;
     margin: 0;
   }
@@ -406,147 +242,67 @@ const values = [
     background: var(--white);
   }
 
+  .team-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 48px;
+  }
+
   .team-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 32px;
   }
 
   .team-card {
     text-align: center;
-    padding: 30px;
-    border-radius: 20px;
-    transition: var(--transition);
-  }
-
-  .team-card:hover {
-    background: var(--light);
   }
 
   .team-avatar {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    width: 80px;
+    height: 80px;
+    background: var(--primary);
     color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    font-size: 1.5rem;
-    margin: 0 auto 20px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 16px;
   }
 
   .team-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    color: var(--dark);
-  }
-
-  .team-role {
-    display: block;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-  }
-
-  .team-card p {
-    color: var(--gray);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Certifications Section */
-  .certifications-section {
-    background: var(--light);
-  }
-
-  .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-  }
-
-  .cert-item {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: var(--shadow);
-  }
-
-  .cert-icon {
-    width: 80px;
-    height: 80px;
-    background: rgba(0, 102, 204, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    color: var(--primary);
-  }
-
-  .cert-item h4 {
     font-size: 1.1rem;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     color: var(--dark);
   }
 
-  .cert-item p {
-    color: var(--gray);
+  .team-card span {
     font-size: 0.9rem;
-    margin: 0;
-  }
-
-  @media (max-width: 1000px) {
-    .values-grid,
-    .team-grid,
-    .cert-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    color: var(--gray-500);
   }
 
   @media (max-width: 900px) {
-    .page-hero h1 {
-      font-size: 2.2rem;
-    }
-
     .story-grid {
       grid-template-columns: 1fr;
-      gap: 50px;
+      gap: 48px;
     }
 
-    .story-image {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .story-content {
-      text-align: center;
-    }
-
-    .story-content .section-title {
-      text-align: center;
-    }
-
-    .story-stats {
-      justify-content: center;
+    .values-grid,
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 600px) {
     .values-grid,
-    .team-grid,
-    .cert-grid {
+    .team-grid {
       grid-template-columns: 1fr;
     }
 
     .story-stats {
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
   }
 </style>

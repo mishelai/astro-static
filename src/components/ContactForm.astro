@@ -4,213 +4,194 @@ interface Props {
 }
 
 const { fullPage = false } = Astro.props;
+
+const faqs = [
+  {
+    question: 'Are your plumbers licensed and insured?',
+    answer: 'Yes, all our plumbers are fully licensed, insured, and have undergone extensive training to ensure the highest quality service.',
+  },
+  {
+    question: 'Do you offer free estimates?',
+    answer: 'Yes, we provide free estimates for most plumbing services. Contact us to schedule an appointment.',
+  },
+  {
+    question: 'What payment methods do you accept?',
+    answer: 'We accept cash, checks, and all major credit cards. Financing options are also available for larger projects.',
+  },
+  {
+    question: 'Do you offer financing options?',
+    answer: 'Yes, we offer flexible financing options to help make plumbing services more affordable for our customers.',
+  },
+];
 ---
 
-<section class={`contact-section section ${fullPage ? 'full-page' : ''}`} id="contact">
+<section class={`contact-section ${fullPage ? 'full-page' : ''}`}>
   <div class="container">
     <div class="contact-grid">
-      <div class="contact-info">
-        <span class="section-label">Contact Us</span>
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="contact-description">
-          Have a plumbing emergency or need a quote? Reach out to us and we'll
-          get back to you as soon as possible.
+      <div class="faq-section">
+        <h2 class="faq-title">
+          <span class="title-bold">Your questions,</span><br />
+          <span class="title-light">answered</span>
+        </h2>
+        <p class="faq-subtitle">
+          Answers to the most common questions our customers have. If you don't find the information you're looking for, feel free to contact us.
         </p>
 
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4>Phone</h4>
-              <a href="tel:+1234567890">(123) 456-7890</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <a href="mailto:info@proplumber.com">info@proplumber.com</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <div>
-              <h4>Address</h4>
-              <p>123 Main Street, Suite 100<br/>Anytown, ST 12345</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-            <div>
-              <h4>Business Hours</h4>
-              <p>Mon - Sat: 7:00 AM - 8:00 PM<br/>Emergency: 24/7</p>
-            </div>
-          </div>
+        <div class="faq-list">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary class="faq-question">
+                {faq.question}
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="faq-answer">{faq.answer}</p>
+            </details>
+          ))}
         </div>
       </div>
 
-      <div class="contact-form-wrapper">
-        <form class="contact-form" id="contact-form">
-          <div class="form-row">
+      {fullPage && (
+        <div class="contact-form-wrapper">
+          <h3 class="form-title">Send us a message</h3>
+          <form class="contact-form" id="contact-form">
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" placeholder="John Doe" required />
             </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required />
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-0123" required />
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john@example.com" required />
-          </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service...</option>
+                <option value="emergency">Emergency Repair</option>
+                <option value="drain">Drain Cleaning</option>
+                <option value="water-heater">Water Heater Service</option>
+                <option value="pipes">Pipe Installation/Repair</option>
+                <option value="bathroom">Bathroom Remodeling</option>
+                <option value="leak">Leak Detection</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
 
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service...</option>
-              <option value="emergency">Emergency Repair</option>
-              <option value="drain">Drain Cleaning</option>
-              <option value="water-heater">Water Heater Service</option>
-              <option value="pipes">Pipe Installation/Repair</option>
-              <option value="bathroom">Bathroom Remodeling</option>
-              <option value="leak">Leak Detection</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Describe your plumbing issue..." required></textarea>
+            </div>
 
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Describe your plumbing issue or question..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-full">
-            Send Message
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-          </button>
-        </form>
-      </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+      )}
     </div>
   </div>
 </section>
 
 <style>
   .contact-section {
-    background: var(--light);
+    background: var(--white);
+    padding: 100px 0;
   }
 
   .contact-section.full-page {
-    padding-top: 100px;
+    padding-top: 60px;
   }
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     align-items: start;
   }
 
-  .section-label {
-    display: inline-block;
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+  .faq-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
 
-  .contact-info .section-title {
-    text-align: left;
-    margin-bottom: 20px;
+  .title-bold {
+    font-weight: 700;
+    color: var(--dark);
   }
 
-  .contact-description {
-    color: var(--gray);
-    line-height: 1.7;
-    margin-bottom: 35px;
+  .title-light {
+    font-weight: 400;
+    color: var(--gray-400);
   }
 
-  .contact-items {
+  .faq-subtitle {
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .faq-list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 0;
   }
 
-  .contact-item {
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
+  .faq-item {
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .contact-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--white);
-    border-radius: 12px;
+  .faq-question {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    flex-shrink: 0;
-    box-shadow: var(--shadow);
-  }
-
-  .contact-item h4 {
-    font-size: 1rem;
+    padding: 20px 0;
+    cursor: pointer;
+    font-weight: 500;
     color: var(--dark);
-    margin-bottom: 5px;
+    font-size: 1rem;
+    list-style: none;
   }
 
-  .contact-item p,
-  .contact-item a {
-    color: var(--gray);
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    color: var(--gray-400);
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding-bottom: 20px;
     font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .contact-item a:hover {
-    color: var(--primary);
+    color: var(--gray-500);
+    line-height: 1.6;
   }
 
   .contact-form-wrapper {
-    background: var(--white);
+    background: var(--gray-50);
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+    border-radius: var(--radius-xl);
   }
 
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  .form-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 24px;
   }
 
   .form-group {
@@ -219,19 +200,19 @@ const { fullPage = false } = Astro.props;
 
   .form-group label {
     display: block;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--dark);
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
     width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #e9ecef;
-    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
     font-size: 1rem;
     font-family: inherit;
     transition: var(--transition);
@@ -243,46 +224,31 @@ const { fullPage = false } = Astro.props;
   .form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: #adb5bd;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
   }
 
   .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
   }
 
   .btn-full {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
     padding: 16px 32px;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    margin-top: 8px;
   }
 
   @media (max-width: 900px) {
     .contact-grid {
       grid-template-columns: 1fr;
-    }
-
-    .contact-form-wrapper {
-      padding: 30px;
+      gap: 48px;
     }
   }
 
   @media (max-width: 600px) {
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-
     .contact-form-wrapper {
-      padding: 25px;
+      padding: 24px;
     }
   }
 </style>
