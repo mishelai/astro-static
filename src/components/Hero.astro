@@ -1,228 +1,699 @@
 ---
-// Premium Hero Section
+// Premium Hero Section - Industrial Luxe
 const base = import.meta.env.BASE_URL;
 ---
 
 <section class="hero">
+  <!-- Animated Background -->
+  <div class="hero-bg">
+    <div class="grid-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="floating-pipes">
+      <svg class="pipe pipe-1" viewBox="0 0 100 40" fill="none">
+        <rect x="0" y="10" width="100" height="20" rx="4" fill="currentColor"/>
+        <circle cx="10" cy="20" r="8" fill="currentColor"/>
+        <circle cx="90" cy="20" r="8" fill="currentColor"/>
+      </svg>
+      <svg class="pipe pipe-2" viewBox="0 0 60 80" fill="none">
+        <rect x="20" y="0" width="20" height="80" rx="4" fill="currentColor"/>
+        <rect x="0" y="60" width="60" height="20" rx="4" fill="currentColor"/>
+      </svg>
+      <svg class="pipe pipe-3" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="4" fill="none"/>
+        <circle cx="20" cy="20" r="6" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
+
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <h1 class="hero-title">
-          Your trusted<br />
-          plumbing solutions<br />
-          <span class="highlight">in New York</span>
+        <!-- Badge -->
+        <div class="hero-badge animate-fade-up">
+          <span class="badge-dot"></span>
+          <span>24/7 Emergency Service</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="hero-title animate-fade-up delay-100">
+          Expert Plumbing<br/>
+          <span class="title-accent">Solutions</span> You Can<br/>
+          <span class="title-outline">Trust</span>
         </h1>
-        <p class="hero-description">
-          With over 20 years of experience, we have built a reputation for
-          delivering top-notch plumbing solutions tailored to meet your needs.
+
+        <!-- Description -->
+        <p class="hero-description animate-fade-up delay-200">
+          New York's premier plumbing service with 20+ years of excellence.
+          From emergency repairs to full renovations, we deliver reliability
+          that flows.
         </p>
-        <div class="hero-cta">
-          <a href={`${base}/contact`} class="btn btn-primary">Get a free quote</a>
-          <div class="hero-rating">
-            <div class="rating-avatars">
-              <div class="avatar">JD</div>
-              <div class="avatar">MK</div>
-              <div class="avatar">SL</div>
-              <div class="avatar">+</div>
+
+        <!-- CTA Buttons -->
+        <div class="hero-actions animate-fade-up delay-300">
+          <a href={`${base}contact`} class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Get Free Quote
+          </a>
+          <a href={`${base}services`} class="btn btn-outline">
+            Our Services
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="hero-trust animate-fade-up delay-400">
+          <div class="trust-avatars">
+            <div class="avatar" style="background: linear-gradient(135deg, #c87941, #d4a84b);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
-            <div class="rating-info">
-              <div class="stars">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              </div>
-              <span class="rating-text">from 200+ reviews</span>
+            <div class="avatar" style="background: linear-gradient(135deg, #d4a84b, #e8c878);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
+            <div class="avatar" style="background: linear-gradient(135deg, #c87941, #a85d2e);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="avatar avatar-count">500+</div>
+          </div>
+          <div class="trust-info">
+            <div class="stars">
+              {[...Array(5)].map(() => (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              ))}
+            </div>
+            <span class="trust-text">Trusted by 500+ NYC homeowners</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-image">
-        <div class="hero-image-wrapper">
-          <div class="image-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" class="placeholder-svg">
-              <defs>
-                <clipPath id="rounded">
-                  <rect x="0" y="0" width="400" height="450" rx="24"/>
-                </clipPath>
-              </defs>
-              <rect width="400" height="450" fill="#fbbf24" rx="24"/>
-              <g clip-path="url(#rounded)">
-                <!-- Plumber illustration -->
-                <ellipse cx="200" cy="480" rx="180" ry="60" fill="#f59e0b" opacity="0.5"/>
-                <g transform="translate(100, 80)">
-                  <!-- Hard hat -->
-                  <ellipse cx="100" cy="45" rx="70" ry="35" fill="#fbbf24"/>
-                  <rect x="30" y="40" width="140" height="50" fill="#fbbf24"/>
-                  <rect x="50" y="30" width="100" height="25" rx="12" fill="#f59e0b"/>
-                  <!-- Face -->
-                  <circle cx="100" cy="100" r="50" fill="#d4a574"/>
-                  <!-- Eyes -->
-                  <circle cx="80" cy="95" r="6" fill="#1e293b"/>
-                  <circle cx="120" cy="95" r="6" fill="#1e293b"/>
-                  <!-- Smile -->
-                  <path d="M 75 115 Q 100 135, 125 115" stroke="#1e293b" stroke-width="4" fill="none" stroke-linecap="round"/>
-                  <!-- Mustache -->
-                  <path d="M 70 108 Q 100 118, 130 108" stroke="#4a3728" stroke-width="6" fill="none" stroke-linecap="round"/>
-                  <!-- Body/Shirt -->
-                  <rect x="50" y="150" width="100" height="120" rx="10" fill="#3b82f6"/>
-                  <!-- Arms -->
-                  <rect x="10" y="160" width="50" height="25" rx="12" fill="#3b82f6"/>
-                  <rect x="140" y="160" width="50" height="25" rx="12" fill="#3b82f6"/>
-                  <!-- Hands -->
-                  <circle cx="10" cy="172" r="18" fill="#d4a574"/>
-                  <circle cx="190" cy="172" r="18" fill="#d4a574"/>
-                  <!-- Tool belt -->
-                  <rect x="45" y="220" width="110" height="15" fill="#1e293b"/>
-                  <rect x="60" y="215" width="20" height="25" rx="3" fill="#6b7280"/>
-                  <rect x="120" y="215" width="20" height="25" rx="3" fill="#6b7280"/>
+      <!-- Hero Visual -->
+      <div class="hero-visual animate-fade-left delay-200">
+        <div class="visual-card">
+          <div class="card-glow"></div>
+          <!-- Plumber Illustration -->
+          <div class="plumber-illustration">
+            <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background Circle -->
+              <circle cx="200" cy="250" r="180" fill="url(#bgGradient)" opacity="0.1"/>
+
+              <!-- Plumber Figure -->
+              <g class="plumber-figure">
+                <!-- Hard Hat -->
+                <ellipse cx="200" cy="120" rx="55" ry="25" fill="#c87941"/>
+                <rect x="145" y="110" width="110" height="40" rx="8" fill="#c87941"/>
+                <rect x="160" y="100" width="80" height="20" rx="10" fill="#d4a84b"/>
+                <ellipse cx="200" cy="115" rx="35" ry="8" fill="#e09f6a" opacity="0.5"/>
+
+                <!-- Face -->
+                <circle cx="200" cy="175" r="45" fill="#e8c4a0"/>
+                <circle cx="200" cy="175" r="43" fill="url(#faceGradient)"/>
+
+                <!-- Eyes -->
+                <ellipse cx="182" cy="168" rx="6" ry="7" fill="#0a1628"/>
+                <ellipse cx="218" cy="168" rx="6" ry="7" fill="#0a1628"/>
+                <circle cx="184" cy="166" r="2" fill="white"/>
+                <circle cx="220" cy="166" r="2" fill="white"/>
+
+                <!-- Eyebrows -->
+                <path d="M172 158 Q182 154, 192 158" stroke="#4a3728" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M208 158 Q218 154, 228 158" stroke="#4a3728" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+                <!-- Smile -->
+                <path d="M180 192 Q200 210, 220 192" stroke="#0a1628" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+                <!-- Body/Uniform -->
+                <rect x="145" y="220" width="110" height="140" rx="12" fill="#132238"/>
+                <rect x="145" y="220" width="110" height="140" rx="12" fill="url(#uniformGradient)"/>
+
+                <!-- Collar -->
+                <path d="M175 220 L200 250 L225 220" stroke="#c87941" stroke-width="4" fill="none"/>
+
+                <!-- Logo Badge -->
+                <circle cx="175" cy="260" r="15" fill="#c87941"/>
+                <text x="175" y="265" font-size="12" fill="white" text-anchor="middle" font-weight="bold">P</text>
+
+                <!-- Arms -->
+                <rect x="100" y="235" width="55" height="25" rx="12" fill="#132238"/>
+                <rect x="245" y="235" width="55" height="25" rx="12" fill="#132238"/>
+
+                <!-- Hands -->
+                <circle cx="95" cy="247" r="18" fill="#e8c4a0"/>
+                <circle cx="305" cy="247" r="18" fill="#e8c4a0"/>
+
+                <!-- Tool Belt -->
+                <rect x="140" y="310" width="120" height="18" rx="4" fill="#1a2d47"/>
+                <rect x="140" y="310" width="120" height="18" rx="4" fill="url(#beltGradient)"/>
+
+                <!-- Belt Tools -->
+                <rect x="160" y="305" width="18" height="28" rx="3" fill="#64748b"/>
+                <rect x="185" y="302" width="12" height="32" rx="2" fill="#94a3b8"/>
+                <rect x="220" y="305" width="18" height="28" rx="3" fill="#64748b"/>
+
+                <!-- Wrench in Hand -->
+                <g transform="translate(280, 200) rotate(45)">
+                  <rect x="0" y="15" width="60" height="12" rx="3" fill="#94a3b8"/>
+                  <circle cx="55" cy="21" r="18" fill="none" stroke="#94a3b8" stroke-width="8"/>
                 </g>
               </g>
+
+              <!-- Floating Elements -->
+              <g class="floating-elements">
+                <circle cx="80" cy="150" r="8" fill="#c87941" opacity="0.6"/>
+                <circle cx="320" cy="180" r="6" fill="#d4a84b" opacity="0.6"/>
+                <circle cx="100" cy="350" r="10" fill="#d4a84b" opacity="0.4"/>
+                <circle cx="300" cy="380" r="7" fill="#c87941" opacity="0.5"/>
+              </g>
+
+              <defs>
+                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#c87941"/>
+                  <stop offset="100%" stop-color="#d4a84b"/>
+                </linearGradient>
+                <linearGradient id="faceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f0d5b8"/>
+                  <stop offset="100%" stop-color="#deb896"/>
+                </linearGradient>
+                <linearGradient id="uniformGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#1a2d47"/>
+                  <stop offset="100%" stop-color="#0a1628"/>
+                </linearGradient>
+                <linearGradient id="beltGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#c87941"/>
+                  <stop offset="50%" stop-color="#d4a84b"/>
+                  <stop offset="100%" stop-color="#c87941"/>
+                </linearGradient>
+              </defs>
             </svg>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stat-card stat-1">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+          </div>
+
+          <div class="stat-card stat-2">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number">30min</span>
+              <span class="stat-label">Response Time</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator animate-fade-up delay-500">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll to explore</span>
+  </div>
 </section>
 
 <style>
   .hero {
-    background: var(--primary);
-    padding: 60px 0 80px;
-    overflow: hidden;
     position: relative;
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 120px 0 80px;
   }
 
+  /* Background Effects */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200, 121, 65, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 121, 65, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: var(--copper);
+    top: -200px;
+    right: -100px;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--brass);
+    bottom: -100px;
+    left: -100px;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  .floating-pipes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .pipe {
+    position: absolute;
+    color: rgba(200, 121, 65, 0.08);
+  }
+
+  .pipe-1 {
+    width: 200px;
+    top: 20%;
+    left: 5%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pipe-2 {
+    width: 80px;
+    bottom: 15%;
+    right: 10%;
+    animation: float 8s ease-in-out infinite reverse;
+  }
+
+  .pipe-3 {
+    width: 60px;
+    top: 60%;
+    left: 15%;
+    animation: float 7s ease-in-out infinite;
+  }
+
+  /* Content */
   .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
+  .hero-text {
+    max-width: 600px;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(200, 121, 65, 0.15);
+    border: 1px solid rgba(200, 121, 65, 0.3);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--copper);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .hero-badge span:last-child {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--copper-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Title */
   .hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.05;
     color: var(--white);
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.03em;
   }
 
-  .hero-title .highlight {
-    color: var(--white);
+  .title-accent {
+    background: var(--gradient-copper);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
+  .title-outline {
+    -webkit-text-stroke: 2px var(--copper);
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Description */
   .hero-description {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 32px;
+    font-size: 1.2rem;
+    color: var(--slate-light);
     line-height: 1.7;
-    max-width: 440px;
+    margin-bottom: var(--space-xl);
+    max-width: 480px;
   }
 
-  .hero-cta {
+  /* Actions */
+  .hero-actions {
     display: flex;
-    align-items: center;
-    gap: 32px;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
     flex-wrap: wrap;
   }
 
-  .hero-rating {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .btn-lg {
+    padding: 18px 36px;
+    font-size: 1.05rem;
   }
 
-  .rating-avatars {
+  /* Trust Indicators */
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .trust-avatars {
     display: flex;
   }
 
   .avatar {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-left: -10px;
+    color: white;
+    border: 3px solid var(--navy);
+    margin-left: -12px;
+    transition: var(--transition);
   }
 
   .avatar:first-child {
     margin-left: 0;
   }
 
-  .rating-info {
+  .avatar:hover {
+    transform: translateY(-4px);
+    z-index: 1;
+  }
+
+  .avatar-count {
+    background: var(--navy-light);
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--copper-light);
+  }
+
+  .trust-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
 
   .stars {
     display: flex;
     gap: 2px;
-    color: var(--accent);
+    color: var(--brass);
   }
 
-  .rating-text {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
+  .trust-text {
+    font-size: 0.9rem;
+    color: var(--slate-light);
   }
 
-  .hero-image {
+  /* Visual Section */
+  .hero-visual {
     display: flex;
     justify-content: center;
-  }
-
-  .hero-image-wrapper {
     position: relative;
   }
 
-  .image-placeholder {
+  .visual-card {
+    position: relative;
     width: 100%;
-    max-width: 380px;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
+    max-width: 450px;
   }
 
-  .placeholder-svg {
+  .card-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse at center, rgba(200, 121, 65, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+
+  .plumber-illustration {
+    position: relative;
+    z-index: 1;
+  }
+
+  .plumber-illustration svg {
     width: 100%;
     height: auto;
-    display: block;
   }
 
-  @media (max-width: 900px) {
+  .plumber-figure {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-elements circle {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .floating-elements circle:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  .floating-elements circle:nth-child(3) {
+    animation-delay: 2s;
+  }
+
+  .floating-elements circle:nth-child(4) {
+    animation-delay: 3s;
+  }
+
+  /* Stat Cards */
+  .stat-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    animation: slideInFromRight 0.8s var(--ease-out-expo) forwards;
+    z-index: 2;
+  }
+
+  .stat-1 {
+    top: 10%;
+    left: -20px;
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+
+  .stat-2 {
+    bottom: 15%;
+    right: -10px;
+    animation-delay: 0.8s;
+    opacity: 0;
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-copper);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .stat-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--slate);
+    font-weight: 500;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--slate-light);
+    font-size: 0.8rem;
+    opacity: 0;
+  }
+
+  .mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--copper);
+    border-radius: 20px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--copper);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-wheel 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-wheel {
+    0%, 100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      opacity: 0.3;
+      transform: translateX(-50%) translateY(12px);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
     .hero-content {
       grid-template-columns: 1fr;
       text-align: center;
+      gap: 60px;
     }
 
-    .hero-title {
-      font-size: 2.5rem;
+    .hero-text {
+      max-width: 100%;
     }
 
     .hero-description {
-      margin: 0 auto 32px;
+      margin: 0 auto var(--space-xl);
     }
 
-    .hero-cta {
+    .hero-actions {
       justify-content: center;
     }
 
-    .hero-image {
+    .hero-trust {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
       order: -1;
     }
 
-    .image-placeholder {
-      max-width: 280px;
+    .visual-card {
+      max-width: 350px;
+    }
+
+    .stat-1 {
+      left: 0;
+      top: 5%;
+    }
+
+    .stat-2 {
+      right: 0;
+      bottom: 10%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 100px 0 60px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 10vw, 3rem);
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .stat-card {
+      padding: 12px 16px;
+    }
+
+    .stat-number {
+      font-size: 1.2rem;
+    }
+
+    .scroll-indicator {
+      display: none;
     }
   }
 </style>

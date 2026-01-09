@@ -4,10 +4,10 @@ interface Props {
 }
 
 const { currentPage = '' } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
 
 const navLinks = [
-  { href: base, label: 'Home' },
+  { href: `${base}/`, label: 'Home' },
   { href: `${base}/services`, label: 'Services' },
   { href: `${base}/about`, label: 'About' },
   { href: `${base}/contact`, label: 'Contact' },
@@ -17,59 +17,107 @@ const navLinks = [
 <nav class="navbar" id="navbar">
   <div class="container">
     <div class="navbar-content">
-      <a href={base} class="logo">
+      <!-- Logo -->
+      <a href={`${base}/`} class="logo">
         <div class="logo-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v6"></path>
-            <path d="M12 22v-6"></path>
-            <circle cx="12" cy="14" r="4"></circle>
-            <path d="M12 18v4"></path>
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+            <path d="M16 8v8M16 24v-4M12 16h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="3" fill="currentColor"/>
           </svg>
         </div>
-        <span class="logo-text">plumbing</span>
+        <span class="logo-text">ProPlumber</span>
       </a>
 
+      <!-- Desktop Navigation -->
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-links">
           {navLinks.map((link) => (
             <li>
               <a
                 href={link.href}
-                class={currentPage === link.href ? 'active' : ''}
+                class:list={[{ active: currentPage === link.href }]}
               >
-                {link.label}
+                <span class="link-text">{link.label}</span>
+                <span class="link-line"></span>
               </a>
             </li>
           ))}
         </ul>
       </div>
 
+      <!-- Right Side Actions -->
       <div class="nav-right">
-        <a href="tel:+1234567890" class="nav-phone">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span>(555) 555-0123</span>
+        <a href="tel:+15555550123" class="nav-phone">
+          <div class="phone-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="phone-content">
+            <span class="phone-label">Call Now</span>
+            <span class="phone-number">(555) 555-0123</span>
+          </div>
         </a>
-        <a href={`${base}/contact`} class="btn btn-primary nav-cta">Contact</a>
+        <a href={`${base}/contact`} class="btn btn-primary nav-cta">
+          Free Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
 
+      <!-- Mobile Menu Toggle -->
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
       </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-links">
+      {navLinks.map((link, index) => (
+        <li style={`--delay: ${index * 0.1}s`}>
+          <a href={link.href} class:list={[{ active: currentPage === link.href }]}>
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="mobile-cta">
+      <a href="tel:+15555550123" class="mobile-phone">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span>(555) 555-0123</span>
+      </a>
+      <a href={`${base}/contact`} class="btn btn-primary">Get Free Quote</a>
     </div>
   </div>
 </nav>
 
 <style>
   .navbar {
-    background: var(--primary);
-    padding: 16px 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    padding: 16px 0;
+    transition: var(--transition);
+  }
+
+  .navbar.scrolled {
+    background: rgba(10, 22, 40, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    padding: 12px 0;
   }
 
   .navbar-content {
@@ -78,30 +126,44 @@ const navLinks = [
     align-items: center;
   }
 
+  /* Logo */
   .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--white);
+    gap: 12px;
+    z-index: 1001;
   }
 
   .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--accent);
-    color: var(--dark);
-    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-copper);
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    transition: var(--transition);
+  }
+
+  .logo-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .logo:hover .logo-icon {
+    transform: rotate(90deg);
   }
 
   .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--white);
+    letter-spacing: -0.02em;
   }
 
+  /* Navigation Links */
   .nav-menu {
     display: flex;
     align-items: center;
@@ -114,20 +176,49 @@ const navLinks = [
   }
 
   .nav-links a {
-    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-display);
     font-weight: 500;
     font-size: 0.95rem;
-    padding: 8px 16px;
     border-radius: var(--radius-full);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .link-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .link-line {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--copper);
+    border-radius: 1px;
+    transform: translateX(-50%);
     transition: var(--transition);
   }
 
   .nav-links a:hover,
   .nav-links a.active {
     color: var(--white);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
   }
 
+  .nav-links a:hover .link-line,
+  .nav-links a.active .link-line {
+    width: 20px;
+  }
+
+  /* Right Side */
   .nav-right {
     display: flex;
     align-items: center;
@@ -137,114 +228,265 @@ const navLinks = [
   .nav-phone {
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: var(--white);
-    font-weight: 500;
-    font-size: 0.95rem;
-  }
-
-  .nav-phone:hover {
-    color: var(--accent);
-  }
-
-  .nav-cta {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-
-  .mobile-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    z-index: 1001;
-  }
-
-  .mobile-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--white);
-    border-radius: 2px;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
     transition: var(--transition);
   }
 
-  @media (max-width: 900px) {
-    .mobile-toggle {
-      display: flex;
-    }
+  .nav-phone:hover {
+    background: rgba(200, 121, 65, 0.1);
+    border-color: var(--copper);
+  }
 
-    .mobile-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
+  .phone-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-copper);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
 
-    .mobile-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
+  .phone-content {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .mobile-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
+  .phone-label {
+    font-size: 0.7rem;
+    color: var(--slate-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
 
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 80%;
-      max-width: 320px;
-      height: 100vh;
-      background: var(--primary-dark);
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px;
-      transition: var(--transition-slow);
-    }
+  .phone-number {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+  }
 
-    .nav-menu.active {
-      right: 0;
-    }
+  .nav-cta {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
 
-    .nav-links {
-      flex-direction: column;
-      gap: 8px;
-      width: 100%;
-    }
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    cursor: pointer;
+    z-index: 1001;
+    transition: var(--transition);
+  }
 
-    .nav-links a {
-      display: block;
-      font-size: 1.1rem;
-      padding: 12px 20px;
-    }
+  .mobile-toggle:hover {
+    background: rgba(200, 121, 65, 0.1);
+    border-color: var(--copper);
+  }
 
+  .bar {
+    width: 20px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    margin: 0 auto;
+    transition: var(--transition);
+  }
+
+  .mobile-toggle.active .bar-1 {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+
+  .mobile-toggle.active .bar-2 {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .mobile-toggle.active .bar-3 {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+
+  /* Mobile Overlay */
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.8);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 998;
+  }
+
+  .mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--navy-light);
+    padding: 100px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-slow);
+    z-index: 999;
+  }
+
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  .mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-links li {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: var(--transition);
+    transition-delay: var(--delay);
+  }
+
+  .mobile-menu.active .mobile-links li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mobile-links a {
+    display: block;
+    padding: 16px 20px;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+
+  .mobile-links a:hover,
+  .mobile-links a.active {
+    color: var(--white);
+    background: rgba(200, 121, 65, 0.15);
+  }
+
+  .mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mobile-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  .mobile-phone:hover {
+    background: rgba(200, 121, 65, 0.1);
+    border-color: var(--copper);
+  }
+
+  .mobile-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .nav-menu,
     .nav-right {
       display: none;
     }
 
-    .nav-right.mobile {
+    .mobile-toggle {
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-text {
+      font-size: 1.2rem;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
     }
   }
 </style>
 
 <script>
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navMenu = document.getElementById('nav-menu');
+  // Scroll behavior
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
 
-  mobileToggle?.addEventListener('click', () => {
-    mobileToggle.classList.toggle('active');
-    navMenu?.classList.toggle('active');
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
   });
 
-  const navLinks = document.querySelectorAll('.nav-links a');
-  navLinks.forEach(link => {
+  // Mobile menu toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+
+  function toggleMenu() {
+    mobileToggle?.classList.toggle('active');
+    mobileMenu?.classList.toggle('active');
+    mobileOverlay?.classList.toggle('active');
+    document.body.style.overflow = mobileMenu?.classList.contains('active') ? 'hidden' : '';
+  }
+
+  mobileToggle?.addEventListener('click', toggleMenu);
+  mobileOverlay?.addEventListener('click', toggleMenu);
+
+  // Close menu on link click
+  const mobileLinks = document.querySelectorAll('.mobile-links a');
+  mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileToggle?.classList.remove('active');
-      navMenu?.classList.remove('active');
+      if (mobileMenu?.classList.contains('active')) {
+        toggleMenu();
+      }
     });
   });
 </script>

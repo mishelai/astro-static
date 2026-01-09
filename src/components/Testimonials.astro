@@ -3,138 +3,287 @@
 const testimonials = [
   {
     name: 'Ryan Johnson',
-    role: 'Review on Trustpilot',
+    location: 'Manhattan, NY',
     initials: 'RJ',
     rating: 5,
-    text: 'Plumbing provided quick and efficient service for our clogged drain. Outstanding our plumbing system for perfect working condition.',
-  },
-  {
-    name: 'Michael Brown',
-    role: 'Review on Trustpilot',
-    initials: 'MB',
-    rating: 5,
-    text: "We're impressed with Plumbing's outstanding job on our kitchen. Their thoroughness and attention to detail made the experience seamless.",
-  },
-  {
-    name: 'David Martinez',
-    role: 'Review on Trustpilot',
-    initials: 'DM',
-    rating: 5,
-    text: "Plumbing's team is reliable and courteous, handling our plumbing issues promptly and with professionalism excellence.",
+    text: 'ProPlumber saved us during a midnight emergency. They arrived in 20 minutes and fixed our burst pipe professionally. Absolutely outstanding service!',
+    service: 'Emergency Repair',
   },
   {
     name: 'Sarah Williams',
-    role: 'Review on Trustpilot',
+    location: 'Brooklyn, NY',
     initials: 'SW',
     rating: 5,
-    text: 'After trying several plumbers, we finally found Plumbing. They diagnosed our issue in minutes after others couldn\'t figure it out.',
+    text: 'After trying several plumbers, we finally found one that delivers. They diagnosed our issue in minutes when others couldn\'t figure it out for days.',
+    service: 'Leak Detection',
+  },
+  {
+    name: 'Michael Chen',
+    location: 'Queens, NY',
+    initials: 'MC',
+    rating: 5,
+    text: 'Our bathroom renovation was handled flawlessly. The team was professional, clean, and finished ahead of schedule. Highly recommend!',
+    service: 'Bathroom Remodel',
+  },
+  {
+    name: 'Emily Rodriguez',
+    location: 'Bronx, NY',
+    initials: 'ER',
+    rating: 5,
+    text: 'Best water heater installation experience ever. They explained all options, gave fair pricing, and the work was impeccable. Will use again!',
+    service: 'Water Heater',
   },
 ];
 ---
 
 <section class="testimonials-section section">
   <div class="container">
-    <h2 class="testimonials-title">
-      <span class="title-regular">What our</span>
-      <span class="title-light">customers</span>
-    </h2>
+    <!-- Section Header -->
+    <div class="section-header" data-animate>
+      <div class="section-label">
+        <span class="badge">Testimonials</span>
+      </div>
+      <h2 class="section-title">
+        What our <span class="text-gradient">customers</span> say
+      </h2>
+      <p class="section-subtitle">
+        Don't just take our word for it. Here's what NYC homeowners
+        have to say about their experience with ProPlumber.
+      </p>
+    </div>
 
+    <!-- Rating Summary -->
+    <div class="rating-summary" data-animate>
+      <div class="summary-stars">
+        {[...Array(5)].map(() => (
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        ))}
+      </div>
+      <div class="summary-text">
+        <span class="summary-rating">4.9</span>
+        <span class="summary-count">Based on 500+ reviews</span>
+      </div>
+    </div>
+
+    <!-- Testimonials Grid -->
     <div class="testimonials-grid">
-      {testimonials.map((testimonial) => (
-        <div class="testimonial-card">
+      {testimonials.map((testimonial, index) => (
+        <div
+          class="testimonial-card"
+          data-animate
+          style={`--delay: ${index * 0.1}s`}
+        >
+          <!-- Quote Icon -->
+          <div class="quote-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.15">
+              <path d="M11 7.33V12H7c0 2.21 1.79 4 4 4v2c-3.31 0-6-2.69-6-6V7.33C5 5.49 6.49 4 8.33 4h.34C10.51 4 12 5.49 12 7.33zm10 0V12h-4c0 2.21 1.79 4 4 4v2c-3.31 0-6-2.69-6-6V7.33C15 5.49 16.49 4 18.33 4h.34C20.51 4 22 5.49 22 7.33z"/>
+            </svg>
+          </div>
+
+          <!-- Rating -->
           <div class="testimonial-rating">
             {[...Array(testimonial.rating)].map(() => (
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
             ))}
           </div>
+
+          <!-- Text -->
           <p class="testimonial-text">{testimonial.text}</p>
+
+          <!-- Service Tag -->
+          <span class="service-tag">{testimonial.service}</span>
+
+          <!-- Author -->
           <div class="testimonial-author">
-            <div class="author-avatar">{testimonial.initials}</div>
+            <div class="author-avatar">
+              <span>{testimonial.initials}</span>
+            </div>
             <div class="author-info">
               <strong>{testimonial.name}</strong>
-              <span>{testimonial.role}</span>
+              <span>{testimonial.location}</span>
             </div>
           </div>
         </div>
       ))}
     </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges" data-animate>
+      <div class="trust-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Licensed & Insured</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <span>Satisfaction Guaranteed</span>
+      </div>
+      <div class="trust-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span>Secure Payments</span>
+      </div>
+    </div>
   </div>
+
+  <!-- Background -->
+  <div class="testimonials-bg"></div>
 </section>
 
 <style>
   .testimonials-section {
-    background: var(--gray-50);
-    padding: 100px 0;
+    position: relative;
+    background: var(--cream);
+    overflow: hidden;
   }
 
-  .testimonials-title {
+  .testimonials-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(200, 121, 65, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(212, 168, 75, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .section-header {
     text-align: center;
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    margin-bottom: 60px;
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    z-index: 1;
   }
 
-  .title-regular {
-    font-weight: 600;
-    color: var(--dark);
+  /* Rating Summary */
+  .rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    z-index: 1;
   }
 
-  .title-light {
-    font-weight: 400;
-    color: var(--gray-400);
+  .summary-stars {
+    display: flex;
+    gap: 4px;
+    color: var(--brass);
   }
 
+  .summary-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .summary-rating {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .summary-count {
+    font-size: 0.9rem;
+    color: var(--slate);
+  }
+
+  /* Testimonials Grid */
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: var(--space-lg);
+    position: relative;
+    z-index: 1;
   }
 
+  /* Testimonial Card */
   .testimonial-card {
     background: var(--white);
-    padding: 28px;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    padding: var(--space-xl);
+    position: relative;
     transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: var(--delay);
+  }
+
+  .testimonial-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .testimonial-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    color: var(--copper);
   }
 
   .testimonial-rating {
     display: flex;
     gap: 2px;
-    color: var(--accent);
-    margin-bottom: 16px;
+    color: var(--brass);
+    margin-bottom: var(--space-md);
   }
 
   .testimonial-text {
     font-size: 0.95rem;
-    color: var(--gray-600);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    color: var(--slate-dark);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(200, 121, 65, 0.1);
+    color: var(--copper);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
   }
 
   .testimonial-author {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .author-avatar {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-    color: var(--white);
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-copper);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 0.8rem;
+  }
+
+  .author-avatar span {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
   }
 
   .author-info {
@@ -143,25 +292,65 @@ const testimonials = [
   }
 
   .author-info strong {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--dark);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
   }
 
   .author-info span {
     font-size: 0.8rem;
-    color: var(--gray-500);
+    color: var(--slate);
   }
 
-  @media (max-width: 1000px) {
+  /* Trust Badges */
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xl);
+    margin-top: var(--space-3xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--slate);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .trust-badge svg {
+    color: var(--copper);
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
     .testimonials-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     .testimonials-grid {
       grid-template-columns: 1fr;
+    }
+
+    .rating-summary {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .summary-text {
+      align-items: center;
+    }
+
+    .trust-badges {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
     }
   }
 </style>
