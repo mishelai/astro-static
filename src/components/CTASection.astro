@@ -1,6 +1,6 @@
 ---
 // Premium Emergency CTA Section
-const base = import.meta.env.BASE_URL;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
 ---
 
 <section class="cta-section">
@@ -41,7 +41,7 @@ const base = import.meta.env.BASE_URL;
           </svg>
           Call (555) 555-0123
         </a>
-        <a href={`${base}contact`} class="btn btn-outline">
+        <a href={`${base}/contact`} class="btn btn-outline">
           Request Callback
         </a>
       </div>

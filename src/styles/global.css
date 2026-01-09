@@ -65,6 +65,21 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   --space-4xl: 96px;
+
+  /* Legacy/Compatibility Variables */
+  --primary: var(--navy);
+  --primary-light: var(--navy-light);
+  --dark: var(--navy);
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: var(--slate-light);
+  --gray-500: var(--slate);
+  --gray-600: var(--slate-dark);
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 /* Reset & Base */
@@ -665,3 +680,46 @@ img {
 
 .relative { position: relative; }
 .overflow-hidden { overflow: hidden; }
+
+/* Page Hero - for subpages */
+.page-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 140px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 121, 65, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 121, 65, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--white);
+  position: relative;
+}
+
+.page-hero p {
+  font-size: 1.2rem;
+  color: var(--slate-light);
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 120px 0 48px;
+  }
+}
